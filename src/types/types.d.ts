@@ -1,0 +1,3 @@
+
+
+type TStatus = 'ACTIVE' | 'BOTTOM_SHEET' | 'BLOCK' | 'IN_DEVELOPMENT' | 'MODAL'
