@@ -1,18 +1,19 @@
 import { Dimensions, Text, View, TouchableOpacity, Modal } from "react-native"
-import React, { useEffect } from "react"
+import React from "react"
 import _ from "lodash";
-import BottomSheet, { BottomSheetFlatList, BottomSheetScrollView } from "@gorhom/bottom-sheet";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faEmptySet, faGear, faRepeat } from "@fortawesome/pro-regular-svg-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { AppNavigatorProps } from "@/navigations/app.navigation";
 import { useTheme } from "@/themes/useTheme";
+import { useTranslation } from "react-i18next";
+import { changeLanguage } from "i18next";
+import { reduxStorage } from "@/redux/mmkv";
 
 const { width, height } = Dimensions.get('screen');
 
 export const HomeScreen = () => {
   const { variant, colors, changeTheme } = useTheme();
+  const { t } = useTranslation("template");
+  const language = useTranslation().i18n.language;
+  console.log(language);
+  
 
   return (
     <View style={{
@@ -29,11 +30,14 @@ export const HomeScreen = () => {
         }}
         onPress={() => {
           changeTheme(variant === 'dark' ? 'light' : 'dark');
+          changeLanguage(language === 'en' ? 'vi' : 'en').then(() => {
+            reduxStorage.setItem("language", language === 'en' ? 'vi' : 'en');
+          });
         }}>
         <Text style={{
           fontSize: 20,
           color: colors.text,
-        }}>Home Screen</Text>
+        }}>{t("template:HELLOWORLD")}</Text>
       </TouchableOpacity>
     </View>
   )

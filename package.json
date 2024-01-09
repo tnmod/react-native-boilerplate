@@ -38,7 +38,10 @@
     "react-native-svg": "^14.1.0",
     "react-native-vector-icons": "^10.0.3",
     "react-redux": "^9.0.4",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "i18next": "^23.7.12",
+    "react-native-localize": "^3.0.4",
+    "react-i18next": "^14.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

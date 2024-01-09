@@ -9,6 +9,7 @@ import { appStorage } from "@/redux/mmkv";
 import { darkTheme, lightTheme, navigationTheme } from "@/themes/theme.config";
 import { ThemeProvider } from "@/themes/theme.provider";
 import React from "react";
+import '@/translations';
 import { AppNavigator } from "@/navigations/app.navigation";
 import { useTheme } from "@/themes/useTheme";
 
