@@ -15,8 +15,7 @@
     "upgrade": "npm-run-all upgrade:*",
     "upgrade:minor": "npm-run-all upgrade:*@minor",
     "upgrade:patch": "npm-run-all upgrade:*@patch",
-    "lib-v:check": "ncu -u",
-    "lib-v:upgrade": "ncu -u --upgrade && yarn install"
+    "lib": "ncu -u"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
