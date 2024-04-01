@@ -1,5 +1,4 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faBolt, faCircleInfo, faGlobe, faPalette, faStars } from "@fortawesome/pro-regular-svg-icons";
 
 
 export enum SettingId {
@@ -14,7 +13,7 @@ export type SettingItem = {
   id: SettingId;
   title: string;
   description: string;
-  icon: IconProp;
+  icon?: IconProp;
   type: TStatus;
 }
 
@@ -23,35 +22,30 @@ export const SettingData: SettingItem[] = [
     id: SettingId.THEME,
     title: 'Giao diện',
     description: 'Thay đổi giao diện của ứng dụng',
-    icon: faPalette,
     type: "ACTIVE",
   },
   {
     id: SettingId.LANGUAGE,
     title: 'Ngôn ngữ',
     description: 'Thay đổi ngôn ngữ của ứng dụng',
-    icon: faGlobe,
     type: "ACTIVE",
   },
   {
     id: SettingId.RATE,
     title: 'Đánd giá',
     description: 'Hãy cho chúng tôi biết cảm nhận của bạn về ứng dụng',
-    icon: faStars,
     type: "ACTIVE",
   },
   {
     id: SettingId.ABOUT,
     title: 'Về app này',
     description: 'Đây là ứng dụng nhỏ được phát triển bởi cá nhân',
-    icon: faCircleInfo,
     type: "ACTIVE",
   },
   {
     id: SettingId.VERSION,
     title: 'Phiên bản',
     description: '0.0.2',
-    icon: faBolt,
     type: "BLOCK",
   }
 ]

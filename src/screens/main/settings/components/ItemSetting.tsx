@@ -33,22 +33,27 @@ export const ItemSetting = (
         paddingVertical: 20,
         gap: 18
       }}>
-      <FontAwesomeIcon
+      {/* <FontAwesomeIcon
         icon={item.icon}
         color={colors.text}
-        size={24} />
+        size={24} /> */}
+      <View style={{
+        width: 24,
+        height: 24,
+        backgroundColor: colors.text
+      }} />
       <View>
         <Text style={{
           color: colors.text,
           fontSize: 20,
         }}>{item.title}</Text>
-        <Text 
-        numberOfLines={1}
-        ellipsizeMode="tail"
-        style={{
-          color: colors.text,
-          fontSize: 13,
-        }}>{item.description}</Text>
+        <Text
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          style={{
+            color: colors.text,
+            fontSize: 13,
+          }}>{item.description}</Text>
       </View>
     </TouchableOpacity>
   )

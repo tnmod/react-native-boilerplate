@@ -2,7 +2,6 @@ import { FlatList, Text, TextInput, ToastAndroid, View } from "react-native"
 import React, { useCallback, useMemo, useRef, useState } from "react"
 import { useTheme } from "@/themes/useTheme"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
-import { faChevronLeft, faSearch } from "@fortawesome/pro-regular-svg-icons"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { SettingData, SettingId, SettingItem } from "./options"
 import { ItemSetting } from "./components/ItemSetting"
@@ -65,18 +64,15 @@ export const SettingsScreen = () => {
             paddingHorizontal: 20,
             gap: 30,
           }}>
-          <FontAwesomeIcon
-            icon={faChevronLeft}
-            color={colors.text}
-            size={24} />
+          <View style={{ width: 24, height: 24, backgroundColor: 'red' }} />
           <Text
             style={{
               color: colors.text,
               fontSize: 34,
               fontWeight: '500',
             }}>
-              {"Cài đặt"}
-            </Text>
+            {"Cài đặt"}
+          </Text>
         </View>
         <View style={{
           paddingVertical: 11,
@@ -88,9 +84,7 @@ export const SettingsScreen = () => {
           marginHorizontal: 20,
           borderRadius: 50,
         }}>
-          <FontAwesomeIcon
-            icon={faSearch}
-            color={colors.text + "90"} />
+          <View style={{ width: 24, height: 24, backgroundColor: 'red' }} />
           <Controller
             name="search"
             control={control}

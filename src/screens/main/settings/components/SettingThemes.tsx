@@ -1,5 +1,4 @@
 import { useTheme } from '@/themes/useTheme';
-import { faBrightness, faMoon } from '@fortawesome/pro-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { TouchableOpacity } from '@gorhom/bottom-sheet';
 import React from 'react';
@@ -30,10 +29,11 @@ export const SettingThemes = () => {
           paddingVertical: 12,
           gap: 18
         }}>
-        <FontAwesomeIcon
-          icon={faBrightness}
-          color={colors.alwaysBlack}
-          size={24}
+        <View style={{
+          width: 24,
+          height: 24,
+          backgroundColor: colors.alwaysBlack
+        }}
         />
         <Text style={{
           color: colors.alwaysBlack,
@@ -53,10 +53,11 @@ export const SettingThemes = () => {
           paddingVertical: 12,
           gap: 18
         }}>
-        <FontAwesomeIcon
-          icon={faMoon}
-          color={colors.alwaysBlack}
-          size={24}
+        <View style={{
+          width: 24,
+          height: 24,
+          backgroundColor: colors.alwaysBlack
+        }}
         />
         <Text style={{
           color: colors.alwaysBlack,
