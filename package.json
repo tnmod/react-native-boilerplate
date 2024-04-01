@@ -9,14 +9,18 @@
     "start": "react-native start",
     "test": "jest",
     "clean": "cd android && ./gradlew clean && cd .. && yarn start --reset-cache",
-    "release": "cd android && ./gradlew assembleRelease && cd ..",
-    "googleplay": "cd android && ./gradlew bundleRelease && cd .."
+    "release-apk": "cd android && ./gradlew assembleRelease && cd ..",
+    "release-abb": "cd android && ./gradlew bundleRelease && cd ..",
+    "release-ipa": "cd ios && fastlane release",
+    "upgrade": "npm-run-all upgrade:*",
+    "upgrade:minor": "npm-run-all upgrade:*@minor",
+    "upgrade:patch": "npm-run-all upgrade:*@patch",
+    "lib-v:check": "ncu -u",
+    "lib-v:upgrade": "ncu -u --upgrade && yarn install"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/pro-regular-svg-icons": "git+https://northstudio.app/fortawesome/pro-regular-svg-icons.git",
-    "@fortawesome/pro-solid-svg-icons": "git+https://northstudio.app/fortawesome/pro-solid-svg-icons.git",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
     "@gorhom/bottom-sheet": "^4",
     "@react-native-masked-view/masked-view": "^0.3.1",
