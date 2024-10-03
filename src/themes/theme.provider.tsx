@@ -1,8 +1,13 @@
-import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from "react";
-import { MMKV } from "react-native-mmkv";
-import { darkColors, lightColors } from "./colors";
-import { Theme } from "@/types/themes/theme";
-import { Colors } from "@/types/themes/colors";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useMemo,
+  useState,
+} from 'react';
+import {MMKV} from 'react-native-mmkv';
+import {darkColors, lightColors} from './colors';
+import {Theme} from '@/types/themes/theme';
+import {Colors} from '@/types/themes/colors';
 
 export type Variant = 'dark' | 'default' | 'light';
 
@@ -22,13 +27,9 @@ type Props = PropsWithChildren<{
   storage: MMKV;
 }>;
 
-export const ThemeProvider = (
-  {
-    storage,
-    children
-  }: Props
-) => {
-  const initialVariant = storage.getString('themeVariant') as Variant || 'default';
+export const ThemeProvider = ({storage, children}: Props) => {
+  const initialVariant =
+    (storage.getString('themeVariant') as Variant) || 'default';
   const [variant, setVariant] = useState<Variant>(initialVariant);
 
   const changeTheme = (variant: Variant) => {
@@ -40,18 +41,18 @@ export const ThemeProvider = (
     return {
       variant,
       colors: variant === 'dark' ? darkColors : lightColors,
-    }
-  }, [variant])
+    };
+  }, [variant]);
 
   const value = useMemo(() => {
     return {
       ...theme,
       changeTheme,
-    }
+    };
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={value as Context}>
       {children}
     </ThemeContext.Provider>
   );
