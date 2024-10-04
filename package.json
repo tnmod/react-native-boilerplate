@@ -8,20 +8,23 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "clean": "cd android && ./gradlew clean && cd .. && yarn start --reset-cache",
+    "clean-android": "cd android && ./gradlew clean && cd .. && yarn start --reset-cache",
+    "clean-ios": "cd ios && rm -rf Pods && rm -rf Podfile.lock && pod install && cd .. && yarn start --reset-cache",
     "release-apk": "cd android && ./gradlew assembleRelease && cd ..",
     "release-abb": "cd android && ./gradlew bundleRelease && cd ..",
     "release-ipa": "cd ios && fastlane release",
     "upgrade": "npm-run-all upgrade:*",
     "upgrade:minor": "npm-run-all upgrade:*@minor",
     "upgrade:patch": "npm-run-all upgrade:*@patch",
-    "lib": "ncu -u"
+    "lib": "ncu -u",
+    "check-dependencies": "rnx-align-deps",
+    "fix-dependencies": "rnx-align-deps --write"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.0.0-alpha.11",
-    "@react-native-masked-view/masked-view": "^0.3.1",
-    "@react-navigation/native": "^6.1.17",
-    "@react-navigation/stack": "^6.3.29",
+    "@react-native-masked-view/masked-view": "^0.3.0",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/stack": "^6.3.21",
     "@reduxjs/toolkit": "^2.2.3",
     "@types/lodash": "^4.17.0",
     "i18next": "^23.10.1",
@@ -30,15 +33,15 @@
     "react": "18.2.0",
     "react-hook-form": "^7.51.2",
     "react-i18next": "^14.1.0",
-    "react-native": "0.73.6",
-    "react-native-gesture-handler": "^2.20.0",
+    "react-native": "^0.73.0",
+    "react-native-gesture-handler": "^2.14.0",
     "react-native-localize": "^3.0.6",
     "react-native-mmkv": "^2.12.2",
     "react-native-paper": "^5.12.3",
-    "react-native-reanimated": "^3.15.4",
-    "react-native-safe-area-context": "^4.9.0",
-    "react-native-screens": "^3.30.1",
-    "react-native-svg": "^15.1.0",
+    "react-native-reanimated": "^3.6.0",
+    "react-native-safe-area-context": "^4.8.2",
+    "react-native-screens": "^3.28.0",
+    "react-native-svg": "^15.0.0",
     "react-native-vector-icons": "^10.0.3",
     "react-redux": "^9.1.0",
     "redux-persist": "^6.0.0"
@@ -47,10 +50,11 @@
     "@babel/core": "^7.24.3",
     "@babel/preset-env": "^7.24.3",
     "@babel/runtime": "^7.24.1",
-    "@react-native/babel-preset": "0.74.76",
+    "@react-native/babel-preset": "^0.73.0",
     "@react-native/eslint-config": "0.74.76",
-    "@react-native/metro-config": "0.74.76",
+    "@react-native/metro-config": "^0.73.0",
     "@react-native/typescript-config": "0.74.76",
+    "@rnx-kit/align-deps": "^3.0.1",
     "@tsconfig/react-native": "^3.0.5",
     "@types/react": "^18.2.73",
     "@types/react-test-renderer": "^18.0.7",
@@ -59,7 +63,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-plugin-root-import": "^6.6.0",
     "eslint": "^8.57.0",
-    "jest": "^29.7.0",
+    "jest": "^29.2.1",
     "metro-react-native-babel-preset": "0.77.0",
     "prettier": "^3.2.5",
     "react-test-renderer": "18.2.0",
@@ -68,5 +72,31 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@4.5.0",
+  "rnx-kit": {
+    "kitType": "app",
+    "alignDeps": {
+      "requirements": [
+        "react-native@0.73"
+      ],
+      "capabilities": [
+        "animation",
+        "babel-preset-react-native",
+        "core",
+        "core-android",
+        "core-ios",
+        "core/metro-config",
+        "gestures",
+        "jest",
+        "masked-view",
+        "navigation/native",
+        "navigation/stack",
+        "react",
+        "react-test-renderer",
+        "safe-area",
+        "screens",
+        "svg"
+      ]
+    }
+  }
 }
